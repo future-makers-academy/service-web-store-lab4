@@ -22,6 +22,9 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
 
+
+
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, 'images/');

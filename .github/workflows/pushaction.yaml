@@ -28,4 +28,4 @@ jobs:
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
       
       - name: Push the docker to that silly little dockerhub
-        run: docker push webstore:0.0.1
+        run: docker push webstore -a

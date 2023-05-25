@@ -9,23 +9,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout our repository
-          uses: actions/checkout@v2
+    steps:
+      - name: Checkout our repository
+        uses: actions/checkout@v2
 
-        - name: setup Node
-          uses: actions/setup-node@v2
-          with:
-            node-version: '14'
+      - name: setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-        - name: Build the Docker Image 
-          run: docker image build -t webstore:0.0.1 .
+      - name: Build the Docker Image 
+        run: docker image build -t webstore:0.0.1 .
 
-        - name: Tag the Docker Image 
-          run: docker tag webstore:0.0.1 koryherzinger/service-web-store-lab4
+      - name: Tag the Docker Image 
+        run: docker tag webstore:0.0.1 koryherzinger/service-web-store-lab4
 
-        - name: Log in to the ole Docker hub
-          run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-        
-        - name: Push the docker to that silly little dockerhub
-          run: docker push koryherzinger/service-web-store-lab4:koryherzinger/service-web-store-lab4
+      - name: Log in to the ole Docker hub
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+      
+      - name: Push the docker to that silly little dockerhub
+        run: docker push koryherzinger/service-web-store-lab4:koryherzinger/service-web-store-lab4
